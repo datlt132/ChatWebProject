@@ -66,13 +66,14 @@
 //        web.ignoring().antMatchers("/static/**", "/templates/**", "/js/**", "/icon/**", "/images/**", "/favicon.ico/**",
 //                "/webjars/springfox-swagger-ui/**", "/swagger-ui.html/**", "/swagger-resources/**", "/v1/api-docs");
 //    }
-//
+
 //    @Override
 //    protected void configure(HttpSecurity http) throws Exception {
 //
 //        if (enableSecurity) {
 //            Logger.info("Enable application security.");
 //            http.authorizeRequests()
+//                    .antMatchers("/admin/**").hasRole(Role.ADMIN.getName())
 //                    .antMatchers("/api/login").permitAll()
 //                    .anyRequest()
 //                    .authenticated();
@@ -87,7 +88,7 @@
 //
 //            http.formLogin()
 //                    .permitAll()
-//                    .defaultSuccessUrl("/admin/")
+//                    .defaultSuccessUrl("/swagger-ui.html")
 //                    .usernameParameter("username")
 //                    .passwordParameter("password");
 //
@@ -100,5 +101,19 @@
 //            http.authorizeRequests().anyRequest().permitAll();
 //        }
 //
+//    }
+
+    //    @Override
+//    protected void configure(HttpSecurity http) throws Exception {
+//        http.authorizeRequests()
+//                .antMatchers("/").authenticated()
+//                .anyRequest().permitAll()
+//                .and()
+//                .formLogin()
+//                .usernameParameter("email")
+//                .defaultSuccessUrl("/coming_soon")
+//                .permitAll()
+//                .and()
+//                .logout().logoutSuccessUrl("/").permitAll();
 //    }
 //}

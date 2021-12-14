@@ -14,6 +14,8 @@ public class CustomUserDetails implements UserDetails {
     private String role;
     private String username;
     private String password;
+    private Collection<? extends GrantedAuthority> authorities;
+
 
 
     private UserEntity user;
@@ -23,10 +25,11 @@ public class CustomUserDetails implements UserDetails {
         this.user = user;
     }
 
-    public CustomUserDetails(String username, String password,
+    public CustomUserDetails(String username, String password, Collection<? extends GrantedAuthority> authorities,
                              Long userId, String name) {
         this.username = username;
         this.password = password;
+        this.authorities = authorities;
         this.userId = userId;
         this.name = name;
     }
@@ -67,7 +70,7 @@ public class CustomUserDetails implements UserDetails {
 
     @Override
     public String getUsername() {
-        return user.getUsername();
+        return user.getEmail();
     }
 
     @Override
@@ -87,6 +90,7 @@ public class CustomUserDetails implements UserDetails {
 
     @Override
     public boolean isEnabled() {
-        return true;
+        return user.isEnabled();
+
     }
 }

@@ -11,9 +11,9 @@ import java.sql.Timestamp;
 public class UserEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long uid;
+    private Long id;
 
-    private String username;
+    private String email;
 
     private String password;
 
@@ -29,20 +29,41 @@ public class UserEntity {
 
     private boolean is_online;
 
-    public Long getUid() {
-        return uid;
+    @Column(name = "verification_code", length = 64)
+    private String verificationCode;
+
+    public String getVerificationCode() {
+        return verificationCode;
     }
 
-    public void setUid(Long uid) {
-        this.uid = uid;
+    public void setVerificationCode(String verificationCode) {
+        this.verificationCode = verificationCode;
     }
 
-    public String getUsername() {
-        return username;
+    public boolean isEnabled() {
+        return enabled;
     }
 
-    public void setUsername(String username) {
-        this.username = username;
+    public void setEnabled(boolean enabled) {
+        this.enabled = enabled;
+    }
+
+    private boolean enabled;
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     public String getPassword() {
