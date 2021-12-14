@@ -1,4 +1,4 @@
-package com.project.GGDriveClone.security;
+package com.project.security;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AuthenticationProvider;

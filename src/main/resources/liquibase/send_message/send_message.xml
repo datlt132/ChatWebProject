@@ -11,6 +11,9 @@
             <column name="send_uid" type="int(11)" ></column>
             <column name="recv_uid" type="int(11)" ></column>
             <column name="mid" type="int(11)" ></column>
+            <column name="created_time" type="TIMESTAMP" defaultValueComputed="CURRENT_TIMESTAMP" />
+            <column name="updated_time" type="TIMESTAMP" defaultValueComputed="CURRENT_TIMESTAMP" />
+            <column name="send_at" type="TIMESTAMP" defaultValueComputed="CURRENT_TIMESTAMP" />
 
         </createTable>
 

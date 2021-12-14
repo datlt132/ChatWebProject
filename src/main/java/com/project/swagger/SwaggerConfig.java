@@ -1,4 +1,4 @@
-package com.project.GGDriveClone.swagger;
+package com.project.swagger;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

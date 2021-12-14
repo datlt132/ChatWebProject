@@ -1,4 +1,4 @@
-package com.project.GGDriveClone.security;
+package com.project.security;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
