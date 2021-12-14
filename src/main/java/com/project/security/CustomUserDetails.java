@@ -17,6 +17,7 @@ public class CustomUserDetails implements UserDetails {
     private Collection<? extends GrantedAuthority> authorities;
 
 
+
     private UserEntity user;
 
 
@@ -32,14 +33,6 @@ public class CustomUserDetails implements UserDetails {
         this.userId = userId;
         this.name = name;
     }
-
-
-//    public CustomUserDetails(String username, String password, boolean enabled, boolean accountNonExpired, boolean credentialsNonExpired, boolean accountNonLocked, Collection<? extends GrantedAuthority> authorities, Long userId, String name) {
-//        super(username, password, enabled, accountNonExpired, credentialsNonExpired, accountNonLocked, authorities);
-//        this.userId = userId;
-//        this.name = name;
-//    }
-
 
     public String getRole() {
         return role;
@@ -98,5 +91,6 @@ public class CustomUserDetails implements UserDetails {
     @Override
     public boolean isEnabled() {
         return user.isEnabled();
+
     }
 }
