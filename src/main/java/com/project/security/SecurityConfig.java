@@ -1,8 +1,5 @@
 //package com.project.security;
 //
-//import com.project.GGDriveClone.enums.Role;
-//import com.project.GGDriveClone.jwt.JwtAuthenticationFilter;
-//import com.project.GGDriveClone.service.CustomUserDetailsService;
 //import org.slf4j.Logger;
 //import org.slf4j.LoggerFactory;
 //import org.springframework.beans.factory.annotation.Autowired;
@@ -40,16 +37,16 @@
 //    @Autowired
 //    private DataSource dataSource;
 //
-//    @Bean
-//    public UserDetailsService userDetailsService() {
-//        return new CustomUserDetailsService();
-//    }
+////    @Bean
+////    public UserDetailsService userDetailsService() {
+////        return new CustomUserDetailsService();
+////    }
 //
 //
-//    @Bean
-//    public JwtAuthenticationFilter jwtAuthenticationFilter() {
-//        return new JwtAuthenticationFilter();
-//    }
+////    @Bean
+////    public JwtAuthenticationFilter jwtAuthenticationFilter() {
+////        return new JwtAuthenticationFilter();
+////    }
 //
 //
 //    @Bean(BeanIds.AUTHENTICATION_MANAGER)
