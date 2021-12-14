@@ -1,22 +1,26 @@
 package com.project.service;
 
+
 import com.project.entity.SendMessageEntity;
 import com.project.reposiroty.SendMessageRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.RequestBody;
+import java.util.List;
 
 @Service
 public class SendMessageService {
     @Autowired
     SendMessageRepository sendMessageRepository;
 
-    SendMessageEntity sendMessageToOne (@RequestBody Long send_uid, @RequestBody Long recv_uid, @RequestBody Long mid){
+    public SendMessageEntity sendMessageToOne ( Long send_uid,  Long recv_uid,  Long mid){
         return sendMessageRepository.save(new SendMessageEntity(send_uid, recv_uid, mid));
     }
 
-    SendMessageEntity sendMessageToGroup (@RequestBody Long send_uid, @RequestBody Long gid, @RequestBody Long mid){
+    public SendMessageEntity sendMessageToGroup ( Long send_uid,  Long gid,  Long mid){
         return null;
     }
 
+    public List<SendMessageEntity> loadAllMessage(Long send_uid, Long recv_uid){
+        return sendMessageRepository.findAllBySend_uidAndRecv_uidAndIs_deletedFalse(send_uid, recv_uid);
+    }
 }

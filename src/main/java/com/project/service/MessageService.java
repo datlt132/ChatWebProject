@@ -4,12 +4,22 @@ import com.project.entity.MessageEntity;
 import com.project.reposiroty.MessageRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.RequestBody;
+
+import java.sql.Timestamp;
 
 @Service
 public class MessageService {
     @Autowired
     MessageRepository messageRepository;
 
-    MessageEntity addMessage(@RequestBody String message){return messageRepository.save(new MessageEntity(message));}
+    public MessageEntity addMessage(String message) {
+        return messageRepository.save(new MessageEntity(message));
+    }
+
+    public MessageEntity deleteMessage(Long mid){
+        MessageEntity messageEntity = messageRepository.findByMid(mid);
+        messageEntity.setIs_deleted(true);
+        messageEntity.setUpdated_time(new Timestamp(System.currentTimeMillis()));
+        return messageRepository.save(messageEntity);
+    }
 }
