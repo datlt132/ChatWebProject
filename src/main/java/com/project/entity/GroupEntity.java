@@ -37,11 +37,13 @@ public class GroupEntity {
         return uid;
     }
 
-    public void setUid(Long uid) {
+    public void
+    setUid(Long uid) {
         this.uid = uid;
     }
 
     public GroupEntity(String group_name) {
         this.group_name = group_name;
     }
+    
 }

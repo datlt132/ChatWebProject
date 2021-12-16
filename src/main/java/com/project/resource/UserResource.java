@@ -4,7 +4,9 @@ package com.project.resource;
 import com.project.entity.UserEntity;
 import com.project.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.repository.query.Param;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -34,5 +36,11 @@ public class UserResource {
         String siteURL = request.getRequestURL().toString();
         return siteURL.replace(request.getServletPath(), "");
     }
+
+    @GetMapping("/verify")
+    public boolean verifyUser(@Param("code") String code) {
+        return service.verify(code);
+    }
+
 
 }

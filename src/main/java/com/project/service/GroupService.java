@@ -10,5 +10,19 @@ public class GroupService {
     @Autowired
     GroupRepository groupRepository;
 
-    GroupEntity newGroup(String name){return groupRepository.save(new GroupEntity(name));}
+    public GroupEntity newGroup(String name) {return groupRepository.save(new GroupEntity(name));}
+
+    public GroupEntity addUser(long uid, GroupEntity groupEntity) {
+        groupEntity.setUid(uid);
+        return groupRepository.save(groupEntity);
+    }
+
+    public GroupEntity deleteUser(long uid, long gid) {
+        return groupRepository.deleteGroupEntitiesByUidAndGid(uid, gid);
+    }
+
+    public GroupEntity deleteGroup(long gid) {
+        return groupRepository.deleteGroupEntitiesByGid(gid);
+    }
+
 }
